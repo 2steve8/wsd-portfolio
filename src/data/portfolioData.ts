@@ -1,6 +1,6 @@
 export const PERSONAL_INFO = {
-  name: "William Steve Ducay",
-  role: "Web Developer & Web Operations Administrator",
+  name: "Steve Ducay",
+  role: "Web Developer & Web Administrator",
   location: "San Mateo, Rizal, Philippines",
   phone: "+63 955 340 4738",
   emailPrimary: "williamsteveducay@live.com",
@@ -10,6 +10,21 @@ export const PERSONAL_INFO = {
     "https://drive.google.com/drive/u/0/folders/0B_W6wEPPCj6XLWRfTHA0OXVQSFk?resourcekey=0-16GD75SggfU_s-rLt9XBuQ",
   resumePdfUrl:
     "https://drive.google.com/file/d/1DE3285AzQ59YetnX6wV7bGn_XfS6IpN9/view?usp=sharing",
+};
+
+export const ABOUT_ME = {
+  headline: "Building web platforms, custom WordPress themes, and scalable frontend architectures.",
+  focusAreas: [
+    "Custom WordPress & PHP Development",
+    "React.js & Next.js Ecosystems",
+    "Web Operations & Server Deployment",
+    "Performance Optimization & SEO",
+  ],
+  paragraphs: [
+    "I am a Full-Stack Web Developer and Web Operations Administrator with over 8 years of specialized experience architecting custom WordPress ecosystems, high-performance PHP themes, Elementor implementations, and modern React/Next.js frontends.",
+    "My professional journey is grounded in a Bachelor of Science in Information Technology from STI College, combined with extensive leadership in digital operations and project management. This background instills a rigorous, systems-oriented approach to debugging, server deployments, database optimization, and cross-functional technical management.",
+    "Whether scaling agency funnels, managing cPanel/DigitalOcean infrastructure, or streamlining multilingual RTL platforms, I bridge the gap between technical code quality and seamless digital operations.",
+  ],
 };
 
 export const SKILLS = [
@@ -91,14 +106,14 @@ export const PROJECTS = [
       "Professional regional portal maintained for event management and membership registration, focusing on multilingual content architecture and core web vitals.",
   },
   {
-    title: "International Digital & RTL Platforms",
-    category: "Web Design, Branding & Localization",
-    url: "https://mind-tech.co.il",
+    title: "Dr. Roseann",
+    category: "Medical & Healthcare Platform",
+    url: "https://www.drroseann.com/",
     image:
-      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fmind-tech.co.il?w=800&h=500",
-    tech: ["WordPress", "RTL Hebrew Layouts", "Branding", "Custom UI"],
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.drroseann.com%2F?w=800&h=500",
+    tech: ["WordPress", "Elementor", "Responsive UI", "Healthcare SEO"],
     description:
-      "Executed web design, color systems, and localized RTL content layouts for multiple commercial platforms including Mind-Tech, Dobrin, TheFungi, Discret, and Secret Room.",
+      "Professional medical and healthcare practice platform featuring clean responsive layout architecture, patient resource galleries, and service scheduling workflows.",
   },
 ];
 

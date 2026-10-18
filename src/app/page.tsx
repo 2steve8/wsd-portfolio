@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ABOUT_ME,
   EDUCATION,
   EXPERIENCE,
   PERSONAL_INFO,
@@ -237,6 +238,82 @@ export default function PortfolioPage() {
           </div>
         </section>
 
+        {/* ABOUT ME SECTION */}
+        <section id="about" className="py-24 border-b border-slate-800/80">
+          <div className="flex items-center gap-2 text-emerald-400 text-sm font-mono uppercase tracking-wider mb-3">
+            <Terminal className="w-4 h-4" />
+            <span>Background & Philosophy</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12">
+            About Me
+          </h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            {/* Left Column: Core Focus & Philosophy Card (5 Cols) */}
+            <div className="lg:col-span-5 rounded-3xl bg-gradient-to-br from-slate-900/90 via-slate-900/50 to-emerald-950/20 border border-emerald-500/30 p-8 sm:p-10 relative overflow-hidden flex flex-col justify-between shadow-2xl shadow-emerald-950/20">
+              <div className="absolute -top-20 -left-20 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
+              <div>
+                {/* Increased bottom margin below the badge */}
+                <div className="mb-6">
+                  <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-xs uppercase tracking-widest">
+                    Core Philosophy & Focus
+                  </span>
+                </div>
+
+                <blockquote className="text-xl sm:text-2xl font-semibold text-slate-100 leading-snug mb-8">
+                  &ldquo;{ABOUT_ME.headline}&rdquo;
+                </blockquote>
+
+                {/* Bullet Focus List with clean bottom spacing */}
+                <ul className="space-y-4 mb-8">
+                  {ABOUT_ME.focusAreas.map((area, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-sm text-slate-300 font-medium">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0 shadow-sm shadow-emerald-500/50" />
+                      <span>{area}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="pt-6 pb-1 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                <span className="text-emerald-400 font-medium">
+                  Full-Stack & Web Ops
+                </span>
+                <span>{PERSONAL_INFO.location}</span>
+              </div>
+            </div>
+
+            {/* Right Column: Narrative & Stats Grid (7 Cols) */}
+            <div className="lg:col-span-7 flex flex-col justify-between rounded-3xl bg-slate-900/40 border border-slate-800/80 p-8 sm:p-10">
+              <div className="space-y-5 text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
+                {ABOUT_ME.paragraphs.map((paragraph, idx) => (
+                  <p key={idx} className={idx === 0 ? "text-slate-100 font-medium" : ""}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              {/* Mini Stats Bar */}
+              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 text-center sm:text-left">
+                <div className="p-3 sm:p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                  <div className="text-emerald-400 font-bold text-xl sm:text-2xl">8+</div>
+                  <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">Years Exp.</div>
+                </div>
+                <div className="p-3 sm:p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                  <div className="text-cyan-400 font-bold text-xl sm:text-2xl">BSIT</div>
+                  <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">STI Marikina</div>
+                </div>
+                <div className="p-3 sm:p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                  <div className="text-emerald-400 font-bold text-xl sm:text-2xl">100%</div>
+                  <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">Precision QA</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* TECHNICAL ARSENAL / SKILLS */}
         <section id="skills" className="py-20 border-b border-slate-800/80">
           <div className="flex items-center gap-2 text-emerald-400 text-sm font-mono uppercase tracking-wider mb-3">
@@ -306,21 +383,41 @@ export default function PortfolioPage() {
                       </a>
                     </div>
 
-                    {/* Website Image Preview */}
+                    {/* Website Image Preview with Robust Fallback */}
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block relative aspect-[16/10] overflow-hidden bg-slate-950"
+                      className="block relative aspect-[16/10] overflow-hidden bg-slate-950 group/img"
                     >
                       <img
                         src={project.image}
                         alt={`${project.title} website preview`}
                         loading="lazy"
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                        onError={(e) => {
+                          // If mShots fails or is blocked, replace with a sleek branded fallback badge
+                          e.currentTarget.style.display = "none";
+                          const parent = e.currentTarget.parentElement;
+                          if (parent && !parent.querySelector(".fallback-banner")) {
+                            const fallback = document.createElement("div");
+                            fallback.className = "fallback-banner absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-emerald-950/40 flex flex-col items-center justify-center p-6 text-center";
+                            fallback.innerHTML = `
+                              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-lg mb-3 shadow-inner">
+                                ${project.title.charAt(0)}
+                              </div>
+                              <h4 class="text-slate-100 font-bold text-base mb-1">${project.title}</h4>
+                              <p class="text-xs text-slate-400 font-mono">${project.url.replace(/^https?:\/\//, "")}</p>
+                              <span class="mt-4 text-xs font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 group-hover/img:bg-emerald-500 group-hover/img:text-slate-950 transition-colors">
+                                Visit Live Site &rarr;
+                              </span>
+                            `;
+                            parent.appendChild(fallback);
+                          }
+                        }}
                       />
                       {/* Subtle dark gradient overlay at bottom of image */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity pointer-events-none" />
                     </a>
                   </div>
 

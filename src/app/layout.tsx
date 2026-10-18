@@ -7,13 +7,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://williamsteveducay.dev"), // Update to your final custom domain if you connect one
   title: {
-    default: "William Steve Ducay | Web Developer & Web Operations Administrator",
+    default: "Steve Ducay | Web Developer & Web Operations Administrator",
     template: "%s | William Steve Ducay Portfolio",
   },
   description:
-    "Portfolio of William Steve Ducay, Full-Stack Web Developer and Web Operations Administrator specializing in WordPress, custom PHP, Elementor, React, Next.js, and scalable web architecture.",
+    "Portfolio of Steve Ducay, Full-Stack Web Developer and Web Operations Administrator specializing in WordPress, custom PHP, Elementor, React, Next.js, and scalable web architecture.",
   keywords: [
     "William Steve Ducay",
+    "Steve Ducay",
     "Web Developer Philippines",
     "Web Operations Administrator",
     "WordPress Developer San Mateo Rizal",
@@ -23,12 +24,12 @@ export const metadata: Metadata = {
     "Frontend Developer",
     "WooCommerce Specialist",
   ],
-  authors: [{ name: "William Steve Ducay", url: "https://github.com" }],
-  creator: "William Steve Ducay",
+  authors: [{ name: "Steve Ducay", url: "https://github.com/2steve8" }],
+  creator: "Steve Ducay",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://williamsteveducay.dev",
+    url: "https://wsd-portfolio.vercel.app/",
     title: "William Steve Ducay | Web Developer & Web Operations Administrator",
     description:
       "Explore the professional portfolio, production projects, and work history of William Steve Ducay, featuring custom WordPress builds, React apps, and web operations expertise.",
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "William Steve Ducay | Web Developer & Web Operations Administrator",
+    title: "Steve Ducay | Web Developer & Web Operations Administrator",
     description:
       "Full-Stack Web Developer and Web Operations Administrator specializing in WordPress, React, Next.js, and scalable web architecture.",
   },
