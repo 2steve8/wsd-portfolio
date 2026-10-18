@@ -154,8 +154,8 @@ export default function PortfolioPage() {
             <a href="#projects" className="hover:text-emerald-400 transition-colors">
               Projects
             </a>
-            <a href="#drive-archive" className="hover:text-emerald-400 transition-colors">
-              Drive Archive
+            <a href="#archive" className="hover:text-emerald-400 transition-colors">
+              Archive
             </a>
             <a href="#experience" className="hover:text-emerald-400 transition-colors">
               Experience
@@ -172,7 +172,7 @@ export default function PortfolioPage() {
             className="text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3.5 py-2 rounded-lg hover:bg-emerald-500 hover:text-slate-950 transition-colors flex items-center gap-1.5"
           >
             <FileText className="w-3.5 h-3.5" />
-            Resume PDF
+            View Resume
           </a>
         </div>
       </header>
@@ -383,41 +383,45 @@ export default function PortfolioPage() {
                       </a>
                     </div>
 
-                    {/* Website Image Preview with Robust Fallback */}
+                    {/* Website Image Preview with Horizontal (X-Scroll) Auto-Pan */}
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block relative aspect-[16/10] overflow-hidden bg-slate-950 group/img"
                     >
-                      <img
-                        src={project.image}
-                        alt={`${project.title} website preview`}
-                        loading="lazy"
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
-                        onError={(e) => {
-                          // If mShots fails or is blocked, replace with a sleek branded fallback badge
-                          e.currentTarget.style.display = "none";
-                          const parent = e.currentTarget.parentElement;
-                          if (parent && !parent.querySelector(".fallback-banner")) {
-                            const fallback = document.createElement("div");
-                            fallback.className = "fallback-banner absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-emerald-950/40 flex flex-col items-center justify-center p-6 text-center";
-                            fallback.innerHTML = `
-                              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-lg mb-3 shadow-inner">
-                                ${project.title.charAt(0)}
-                              </div>
-                              <h4 class="text-slate-100 font-bold text-base mb-1">${project.title}</h4>
-                              <p class="text-xs text-slate-400 font-mono">${project.url.replace(/^https?:\/\//, "")}</p>
-                              <span class="mt-4 text-xs font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 group-hover/img:bg-emerald-500 group-hover/img:text-slate-950 transition-colors">
-                                Visit Live Site &rarr;
-                              </span>
-                            `;
-                            parent.appendChild(fallback);
-                          }
-                        }}
-                      />
+                      <div className="w-full h-full overflow-hidden relative">
+                        <img
+                          src={project.image}
+                          alt={`${project.title} website preview`}
+                          loading="lazy"
+                          // Starts pinned to the left, expands wider than frame, and pans horizontally to the right side on hover
+                          className="w-[160%] max-w-none h-full object-cover object-left transition-transform duration-[3500ms] ease-in-out group-hover/img:-translate-x-[37.5%]"
+                          onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                            const parent = e.currentTarget.parentElement?.parentElement;
+                            if (parent && !parent.querySelector(".fallback-banner")) {
+                              const fallback = document.createElement("div");
+                              fallback.className =
+                                "fallback-banner absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-emerald-950/40 flex flex-col items-center justify-center p-6 text-center";
+                              fallback.innerHTML = `
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-lg mb-3 shadow-inner">
+                                  ${project.title.charAt(0)}
+                                </div>
+                                <h4 class="text-slate-100 font-bold text-base mb-1">${project.title}</h4>
+                                <p class="text-xs text-slate-400 font-mono">${project.url.replace(/^https?:\/\//, "")}</p>
+                                <span class="mt-4 text-xs font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 group-hover/img:bg-emerald-500 group-hover/img:text-slate-950 transition-colors">
+                                  Visit Live Site &rarr;
+                                </span>
+                              `;
+                              parent.appendChild(fallback);
+                            }
+                          }}
+                        />
+                      </div>
+
                       {/* Subtle dark gradient overlay at bottom of image */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover/img:opacity-20 transition-opacity pointer-events-none" />
                     </a>
                   </div>
 
@@ -465,7 +469,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* GOOGLE DRIVE MASTER ARCHIVE BANNER */}
-        <section id="drive-archive" className="py-20 border-b border-slate-800/80">
+        <section id="archive" className="py-20 border-b border-slate-800/80">
           <div
             style={{
               backgroundImage:
@@ -482,12 +486,12 @@ export default function PortfolioPage() {
                 Master Asset Repository
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold mb-3">
-                Google Drive Portfolio & Case Study Archive
+                Portfolio & Case Study Archive
               </h2>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                 Looking for full UI/UX mockups, graphic design deliverables,
                 landing page layouts, and my complete curriculum vitae? Browse
-                my organized Google Drive master archive directly.
+                my organized archive directly.
               </p>
             </div>
 
@@ -499,7 +503,7 @@ export default function PortfolioPage() {
                 className="w-full px-6 py-4 rounded-xl bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400 transition-colors flex items-center justify-center gap-2 text-sm shadow-lg shadow-emerald-950/40"
               >
                 <FolderKanban className="w-4 h-4 shrink-0" />
-                <span>Open Drive Portfolio</span>
+                <span>View Portfolio</span>
               </a>
               <a
                 href={PERSONAL_INFO.resumePdfUrl}
@@ -508,7 +512,7 @@ export default function PortfolioPage() {
                 className="w-full px-6 py-4 rounded-xl bg-slate-950/90 border border-slate-700 text-slate-200 font-medium hover:border-emerald-400 transition-colors flex items-center justify-center gap-2 text-sm"
               >
                 <FileText className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>View Full CV (PDF)</span>
+                <span>View Resume</span>
               </a>
             </div>
           </div>
