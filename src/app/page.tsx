@@ -383,45 +383,41 @@ export default function PortfolioPage() {
                       </a>
                     </div>
 
-                    {/* Website Image Preview: Full-Length Auto-Scroll on Hover */}
+                    {/* Website Image Preview with Robust Fallback */}
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block relative aspect-[16/10] overflow-hidden bg-slate-950 group/img"
                     >
-                      <div className="w-full h-full overflow-hidden relative">
-                        <img
-                          src={project.image}
-                          alt={`${project.title} website preview`}
-                          loading="lazy"
-                          // calc(-100% + 100%) is achieved by shifting up by 100% of image height minus container viewport
-                          className="w-full h-auto block object-cover object-top transition-transform duration-[6000ms] ease-in-out group-hover/img:-translate-y-[calc(100%-250px)]"
-                          onError={(e) => {
-                            e.currentTarget.style.display = "none";
-                            const parent = e.currentTarget.parentElement?.parentElement;
-                            if (parent && !parent.querySelector(".fallback-banner")) {
-                              const fallback = document.createElement("div");
-                              fallback.className =
-                                "fallback-banner absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-emerald-950/40 flex flex-col items-center justify-center p-6 text-center";
-                              fallback.innerHTML = `
-                                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-lg mb-3 shadow-inner">
-                                  ${project.title.charAt(0)}
-                                </div>
-                                <h4 class="text-slate-100 font-bold text-base mb-1">${project.title}</h4>
-                                <p class="text-xs text-slate-400 font-mono">${project.url.replace(/^https?:\/\//, "")}</p>
-                                <span class="mt-4 text-xs font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 group-hover/img:bg-emerald-500 group-hover/img:text-slate-950 transition-colors">
-                                  Visit Live Site &rarr;
-                                </span>
-                              `;
-                              parent.appendChild(fallback);
-                            }
-                          }}
-                        />
-                      </div>
-
+                      <img
+                        src={project.image}
+                        alt={`${project.title} website preview`}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                        onError={(e) => {
+                          // If mShots fails or is blocked, replace with a sleek branded fallback badge
+                          e.currentTarget.style.display = "none";
+                          const parent = e.currentTarget.parentElement;
+                          if (parent && !parent.querySelector(".fallback-banner")) {
+                            const fallback = document.createElement("div");
+                            fallback.className = "fallback-banner absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-emerald-950/40 flex flex-col items-center justify-center p-6 text-center";
+                            fallback.innerHTML = `
+                              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-lg mb-3 shadow-inner">
+                                ${project.title.charAt(0)}
+                              </div>
+                              <h4 class="text-slate-100 font-bold text-base mb-1">${project.title}</h4>
+                              <p class="text-xs text-slate-400 font-mono">${project.url.replace(/^https?:\/\//, "")}</p>
+                              <span class="mt-4 text-xs font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 group-hover/img:bg-emerald-500 group-hover/img:text-slate-950 transition-colors">
+                                Visit Live Site &rarr;
+                              </span>
+                            `;
+                            parent.appendChild(fallback);
+                          }
+                        }}
+                      />
                       {/* Subtle dark gradient overlay at bottom of image */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-50 group-hover/img:opacity-10 transition-opacity pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity pointer-events-none" />
                     </a>
                   </div>
 
