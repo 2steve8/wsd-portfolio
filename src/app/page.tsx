@@ -383,7 +383,7 @@ export default function PortfolioPage() {
                       </a>
                     </div>
 
-                    {/* Website Image Preview with Horizontal (X-Scroll) Auto-Pan */}
+                    {/* Website Image Preview with Vertical (Y-Scroll) Auto-Glide on Hover */}
                     <a
                       href={project.url}
                       target="_blank"
@@ -395,8 +395,8 @@ export default function PortfolioPage() {
                           src={project.image}
                           alt={`${project.title} website preview`}
                           loading="lazy"
-                          // Starts pinned to the left, expands wider than frame, and pans horizontally to the right side on hover
-                          className="w-[160%] max-w-none h-full object-cover object-left transition-transform duration-[3500ms] ease-in-out group-hover/img:-translate-x-[37.5%]"
+                          // Starts pinned at the top; on hover glides smoothly downward along the Y-axis
+                          className="w-full h-auto object-cover object-top transition-transform duration-[4000ms] ease-in-out group-hover/img:-translate-y-[60%]"
                           onError={(e) => {
                             e.currentTarget.style.display = "none";
                             const parent = e.currentTarget.parentElement?.parentElement;
