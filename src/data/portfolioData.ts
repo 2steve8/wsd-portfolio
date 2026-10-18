@@ -49,7 +49,7 @@ export const PROJECTS = [
     category: "Agency Platform & Service Funnels",
     url: "https://thinkcreativeplus.com",
     image:
-      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fthinkcreativeplus.com?w=800&h=500",
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fthinkcreativeplus.com?w=800&h=2000",
     tech: ["WordPress", "Custom PHP", "Elementor", "JavaScript", "CSS3"],
     description:
       "Full digital agency platform featuring custom service funnels, interactive client ordering flows, dynamic portfolio showcases, and speed optimization.",
@@ -59,7 +59,7 @@ export const PROJECTS = [
     category: "Medical Aesthetics Platform",
     url: "https://cleonclinic.com",
     image:
-      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fcleonclinic.com?w=800&h=500",
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fcleonclinic.com?w=800&h=2000",
     tech: ["WordPress", "Responsive CSS", "SEO Architecture", "UI/UX"],
     description:
       "Medical aesthetics platform engineered with custom responsive CSS components (including custom referral CTA banners) and SEO-optimized clinical procedure galleries.",
@@ -69,7 +69,7 @@ export const PROJECTS = [
     category: "Staging Environment & UI Systems",
     url: "https://staging.axelis.co",
     image:
-      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fstaging.axelis.co?w=800&h=500",
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fstaging.axelis.co?w=800&h=2000",
     tech: [
       "WordPress",
       "Custom PHP",
@@ -85,7 +85,7 @@ export const PROJECTS = [
     category: "On-Demand Presentation Platform",
     url: "https://slidestudio.io",
     image:
-      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fslidestudio.io?w=800&h=500",
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fslidestudio.io?w=800&h=2000",
     tech: ["JavaScript", "Interactive Calculator", "WordPress", "Custom UI"],
     description:
       "On-demand presentation design platform engineered with an interactive four-step quote calculator and filterable template library.",
@@ -95,7 +95,7 @@ export const PROJECTS = [
     category: "Event & Membership Portal",
     url: "https://marketingclub-aachen.de",
     image:
-      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fmarketingclub-aachen.de?w=800&h=500",
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fmarketingclub-aachen.de?w=800&h=2000",
     tech: [
       "WordPress",
       "Multilingual Architecture",
@@ -110,7 +110,7 @@ export const PROJECTS = [
     category: "Medical & Healthcare Platform",
     url: "https://www.drroseann.com/",
     image:
-      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.drroseann.com%2F?w=800&h=500",
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.drroseann.com%2F?w=800&h=2000",
     tech: ["WordPress", "Elementor", "Responsive UI", "Healthcare SEO"],
     description:
       "Professional medical and healthcare practice platform featuring clean responsive layout architecture, patient resource galleries, and service scheduling workflows.",
