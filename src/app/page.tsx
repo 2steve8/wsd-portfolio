@@ -383,7 +383,7 @@ export default function PortfolioPage() {
                       </a>
                     </div>
 
-                    {/* Website Image Preview with Vertical (Y-Scroll) Auto-Glide on Hover */}
+                    {/* Website Image Preview: Full-Length Auto-Scroll on Hover */}
                     <a
                       href={project.url}
                       target="_blank"
@@ -395,8 +395,8 @@ export default function PortfolioPage() {
                           src={project.image}
                           alt={`${project.title} website preview`}
                           loading="lazy"
-                          // Starts pinned at the top; on hover glides smoothly downward along the Y-axis
-                          className="w-full h-auto object-cover object-top transition-transform duration-[4000ms] ease-in-out group-hover/img:-translate-y-[60%]"
+                          // calc(-100% + 100%) is achieved by shifting up by 100% of image height minus container viewport
+                          className="w-full h-auto block object-cover object-top transition-transform duration-[6000ms] ease-in-out group-hover/img:-translate-y-[calc(100%-250px)]"
                           onError={(e) => {
                             e.currentTarget.style.display = "none";
                             const parent = e.currentTarget.parentElement?.parentElement;
@@ -421,7 +421,7 @@ export default function PortfolioPage() {
                       </div>
 
                       {/* Subtle dark gradient overlay at bottom of image */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover/img:opacity-20 transition-opacity pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-50 group-hover/img:opacity-10 transition-opacity pointer-events-none" />
                     </a>
                   </div>
 
