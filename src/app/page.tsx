@@ -212,7 +212,7 @@ export default function PortfolioPage() {
               href="#projects"
               className="hero-cta px-6 py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400 transition-colors flex items-center gap-2"
             >
-              Explore Live Projects
+              Live Projects
               <ArrowUpRight className="w-4 h-4" />
             </a>
 
@@ -223,7 +223,7 @@ export default function PortfolioPage() {
               className="hero-cta px-6 py-3.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 font-medium hover:border-emerald-500/50 hover:text-emerald-300 transition-colors flex items-center gap-2"
             >
               <FolderKanban className="w-4 h-4 text-emerald-400" />
-              Google Drive Portfolio Folder
+              Portfolio
             </a>
 
             <a
@@ -233,7 +233,7 @@ export default function PortfolioPage() {
               className="hero-cta px-6 py-3.5 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300 font-medium hover:border-slate-600 transition-colors flex items-center gap-2"
             >
               <FileText className="w-4 h-4 text-cyan-400" />
-              Download CV
+              View Resume
             </a>
           </div>
         </section>
@@ -519,10 +519,10 @@ export default function PortfolioPage() {
           <div className="mb-12">
             <div className="flex items-center gap-2 text-emerald-400 text-sm font-mono uppercase tracking-wider mb-2">
               <Briefcase className="w-4 h-4" />
-              <span>Career Trajectory</span>
+              <span>Career</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold">
-              Work History & Operations Experience
+              Work History
             </h2>
           </div>
 
@@ -623,7 +623,7 @@ export default function PortfolioPage() {
               </div>
             </div>
             <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 rounded-lg">
-              Graduated {EDUCATION.graduated}
+              {EDUCATION.graduated}
             </span>
           </div>
         </section>
