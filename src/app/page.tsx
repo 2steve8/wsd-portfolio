@@ -303,7 +303,7 @@ export default function PortfolioPage() {
                 </div>
                 <div className="p-3 sm:p-4 rounded-xl bg-slate-950/60 border border-slate-800">
                   <div className="text-cyan-400 font-bold text-xl sm:text-2xl">BSIT</div>
-                  <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">STI Marikina</div>
+                  <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">STI College</div>
                 </div>
                 <div className="p-3 sm:p-4 rounded-xl bg-slate-950/60 border border-slate-800">
                   <div className="text-emerald-400 font-bold text-xl sm:text-2xl">100%</div>
