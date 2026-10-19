@@ -80,23 +80,41 @@ export default function PortfolioPage() {
         }
       );
 
-      // 3. Project cards slide-up reveal on scroll
-      gsap.fromTo(
-        ".project-card",
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.15,
-          duration: 0.75,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: "#projects",
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
+      // 3. OCTANE-STYLE PINNED SPLIT-SCROLL INTERACTION
+      const projectItems = gsap.utils.toArray<HTMLElement>(".project-item-right");
+      const textPanels = gsap.utils.toArray<HTMLElement>(".project-text-panel");
+
+      projectItems.forEach((item, index) => {
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top 55%",
+          end: "bottom 55%",
+          onEnter: () => setActiveProject(index),
+          onEnterBack: () => setActiveProject(index),
+        });
+      });
+
+      function setActiveProject(activeIndex: number) {
+        textPanels.forEach((panel, i) => {
+          if (i === activeIndex) {
+            gsap.to(panel, {
+              opacity: 1,
+              y: 0,
+              duration: 0.4,
+              ease: "power2.out",
+              pointerEvents: "auto",
+            });
+          } else {
+            gsap.to(panel, {
+              opacity: 0,
+              y: i < activeIndex ? -15 : 15,
+              duration: 0.3,
+              ease: "power2.in",
+              pointerEvents: "none",
+            });
+          }
+        });
+      }
 
       // 4. Experience timeline items slide in from left
       const timelineItems = gsap.utils.toArray<HTMLElement>(".timeline-item");
@@ -336,40 +354,89 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* FEATURED PROJECTS */}
+        {/* FEATURED PROJECTS (OCTANE-STYLE PINNED SPLIT SCROLLER) */}
         <section id="projects" className="py-24 border-b border-slate-800/80">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <p className="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-2">
-                Production Systems & Case Studies
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-bold">
-                Featured Web Projects
-              </h2>
-            </div>
-            <p className="text-slate-400 text-sm max-w-md">
-              Live production builds spanning custom WordPress themes, member
-              portals, interactive calculators, and multilingual platforms.
-            </p>
-          </div>
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {PROJECTS.map((project) => (
-              <div
-                key={project.title}
-                className="project-card group relative rounded-2xl bg-slate-900/60 border border-slate-800/90 overflow-hidden hover:border-emerald-500/50 transition-colors flex flex-col justify-between"
-              >
-                <div>
-                  {/* Browser Frame + Website Screenshot Snippet */}
-                  <div className="relative border-b border-slate-800/90 bg-slate-950">
-                    {/* Browser Top Bar */}
-                    <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800/80">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              {/* LEFT COLUMN: Pinned Sticky Title & Dynamic Cross-Fading Copy */}
+              <div className="lg:col-span-5 lg:sticky lg:top-28 z-20">
+                <p className="text-emerald-400 text-xs sm:text-sm font-mono uppercase tracking-widest mb-2 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Production Systems & Architecture
+                </p>
+                <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-8">
+                  Featured Web Projects
+                </h2>
+
+                {/* Cross-Fading Text Container */}
+                <div className="relative min-h-[340px]">
+                  {PROJECTS.map((project, idx) => (
+                    <div
+                      key={project.title}
+                      className={`project-text-panel transition-colors ${idx === 0 ? "opacity-100 relative pointer-events-auto" : "opacity-0 absolute inset-0 pointer-events-none"
+                        }`}
+                    >
+                      {/* Active Tag / Pill */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 rounded-full font-semibold">
+                          {project.category}
+                        </span>
+                        <span className="text-xs font-mono text-slate-500">
+                          0{idx + 1} / 0{PROJECTS.length}
+                        </span>
                       </div>
-                      <span className="text-[11px] font-mono text-slate-400 truncate max-w-[200px] sm:max-w-[260px] bg-slate-950/80 px-2.5 py-0.5 rounded border border-slate-800">
+
+                      <h3 className="text-2xl sm:text-3xl font-bold text-slate-100 mb-4">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-slate-300 text-base leading-relaxed mb-6">
+                        {project.description}
+                      </p>
+
+                      {/* Tech Stack Pills */}
+                      <div className="flex flex-wrap gap-2 mb-8">
+                        {project.tech.map((t) => (
+                          <span
+                            key={t}
+                            className="text-xs font-mono text-slate-300 bg-slate-900 px-3 py-1 rounded-md border border-slate-800"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Live Link Button */}
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-semibold text-sm hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-950/40"
+                      >
+                        <span>Visit Live Site</span>
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* RIGHT COLUMN: Vertically Scrolling Website Mockups */}
+              <div className="lg:col-span-7 space-y-16 lg:space-y-24">
+                {PROJECTS.map((project, idx) => (
+                  <div
+                    key={project.title}
+                    className="project-item-right rounded-3xl bg-slate-900/60 border border-slate-800 overflow-hidden shadow-2xl transition-all duration-300 hover:border-emerald-500/40"
+                  >
+                    {/* Browser Mockup Top-Bar */}
+                    <div className="flex items-center justify-between px-5 py-3 bg-slate-900 border-b border-slate-800">
+                      <div className="flex items-center gap-2">
+                        <span className="w-3 h-3 rounded-full bg-rose-500/80" />
+                        <span className="w-3 h-3 rounded-full bg-amber-500/80" />
+                        <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                      </div>
+                      <span className="text-xs font-mono text-slate-400 truncate max-w-[260px] bg-slate-950 px-3 py-0.5 rounded border border-slate-800">
                         {project.url.replace(/^https?:\/\//, "")}
                       </span>
                       <a
@@ -379,11 +446,11 @@ export default function PortfolioPage() {
                         className="text-slate-400 hover:text-emerald-400 transition-colors"
                         aria-label={`Visit ${project.title}`}
                       >
-                        <ExternalLink className="w-3.5 h-3.5" />
+                        <ExternalLink className="w-4 h-4" />
                       </a>
                     </div>
 
-                    {/* Website Image Preview with Robust Fallback */}
+                    {/* Screenshot Preview with Smooth Auto-Scroll on Hover */}
                     <a
                       href={project.url}
                       target="_blank"
@@ -392,75 +459,17 @@ export default function PortfolioPage() {
                     >
                       <img
                         src={project.image}
-                        alt={`${project.title} website preview`}
+                        alt={`${project.title} preview`}
                         loading="lazy"
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
-                        onError={(e) => {
-                          // If mShots fails or is blocked, replace with a sleek branded fallback badge
-                          e.currentTarget.style.display = "none";
-                          const parent = e.currentTarget.parentElement;
-                          if (parent && !parent.querySelector(".fallback-banner")) {
-                            const fallback = document.createElement("div");
-                            fallback.className = "fallback-banner absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-emerald-950/40 flex flex-col items-center justify-center p-6 text-center";
-                            fallback.innerHTML = `
-                              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-lg mb-3 shadow-inner">
-                                ${project.title.charAt(0)}
-                              </div>
-                              <h4 class="text-slate-100 font-bold text-base mb-1">${project.title}</h4>
-                              <p class="text-xs text-slate-400 font-mono">${project.url.replace(/^https?:\/\//, "")}</p>
-                              <span class="mt-4 text-xs font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 group-hover/img:bg-emerald-500 group-hover/img:text-slate-950 transition-colors">
-                                Visit Live Site &rarr;
-                              </span>
-                            `;
-                            parent.appendChild(fallback);
-                          }
-                        }}
+                        className="w-full h-auto object-cover object-top transition-transform duration-[3500ms] ease-in-out group-hover/img:-translate-y-[55%]"
                       />
-                      {/* Subtle dark gradient overlay at bottom of image */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-60 group-hover/img:opacity-10 transition-opacity pointer-events-none" />
                     </a>
                   </div>
-
-                  {/* Card Body */}
-                  <div className="p-7 pb-4">
-                    <div className="flex items-center justify-between gap-4 mb-3">
-                      <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">
-                        {project.category}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-bold text-slate-100 group-hover:text-emerald-300 transition-colors mb-2.5">
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:underline"
-                      >
-                        {project.title}
-                      </a>
-                    </h3>
-
-                    <p className="text-slate-400 text-sm leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Card Footer Tech Pills */}
-                <div className="px-7 pb-7 pt-4">
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
-                    {project.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="text-xs text-slate-300 bg-slate-950/70 px-2.5 py-1 rounded border border-slate-800"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+
+            </div>
           </div>
         </section>
 
