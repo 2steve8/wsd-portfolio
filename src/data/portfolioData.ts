@@ -85,6 +85,26 @@ export const PROJECTS = [
       "Medical aesthetics platform engineered with custom responsive CSS components (including custom referral CTA banners) and SEO-optimized clinical procedure galleries.",
   },
   {
+    title: "Youthful by Rosie",
+    category: "Cosmetic Aesthetics & Skin Clinic",
+    url: "https://www.youthfulbyrosie.com.au",
+    image:
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.youthfulbyrosie.com.au%2F?w=800&h=500",
+    tech: ["Wix Studio / Editor", "Wix Bookings", "Custom Styling", "Responsive Layout", "Aesthetic UI"],
+    description:
+      "Bespoke cosmetic injectable and dermal skin clinic platform built on Wix for Youthful by Rosie (Australia). Features tailored aesthetic service menus, seamless Wix Bookings integration, client consultation funnels, and mobile-optimized visual branding.",
+  },
+  {
+    title: "Heal Nutrition",
+    category: "E-Commerce & Nutrition Platform",
+    url: "https://my.healnutrition.co",
+    image:
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fmy.healnutrition.co?w=800&h=500",
+    tech: ["Shopify", "Liquid", "E-Commerce Architecture", "Conversion Rate Optimization", "Responsive UI"],
+    description:
+      "Direct-to-consumer health and protein supplement e-commerce storefront powered by Shopify. Engineered with custom product bundles, subscription checkout funnels, mobile-first navigation, and optimized product discovery.",
+  },
+  {
     title: "Verso Biosense",
     category: "Medical Technology & Clinical Trials",
     url: "https://www.versobiosense.com",
