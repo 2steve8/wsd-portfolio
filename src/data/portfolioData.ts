@@ -45,6 +45,16 @@ export const SKILLS = [
 
 export const PROJECTS = [
   {
+    title: "Jayden McGinlay",
+    category: "Entertainment & Artist Platform",
+    url: "https://jaydenmcginlay.com",
+    image:
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fjaydenmcginlay.com%2F?w=800&h=500",
+    tech: ["WordPress", "Responsive Media", "Custom UI", "Video & Audio Integration"],
+    description:
+      "Official website and digital portfolio for actor, performer, and musician Jayden McGinlay. Features interactive screen and stage project archives, video showreel showcases, press galleries, and high-performance media delivery.",
+  },
+  {
     title: "ThinkCreativePlus",
     category: "Agency Platform & Service Funnels",
     url: "https://thinkcreativeplus.com",
@@ -55,6 +65,16 @@ export const PROJECTS = [
       "Full digital agency platform featuring custom service funnels, interactive client ordering flows, dynamic portfolio showcases, and speed optimization.",
   },
   {
+    title: "Lulu Aesthetica",
+    category: "Medical Aesthetics & Skin Health",
+    url: "https://luluaesthetica.com.au",
+    image:
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.luluaesthetica.com.au?w=800&h=500",
+    tech: ["WordPress", "Custom CSS", "Appointment Booking", "Responsive UI", "Healthcare SEO"],
+    description:
+      "Premier Australian medical aesthetics and clinical skin health clinic platform (Bella Vista & Camperdown). Features bespoke treatment catalogues, online booking integration, interactive skin consultation flows, and responsive aesthetic galleries.",
+  },
+  {
     title: "Cleon Clinic",
     category: "Medical Aesthetics Platform",
     url: "https://cleonclinic.com",
@@ -63,6 +83,16 @@ export const PROJECTS = [
     tech: ["WordPress", "Responsive CSS", "SEO Architecture", "UI/UX"],
     description:
       "Medical aesthetics platform engineered with custom responsive CSS components (including custom referral CTA banners) and SEO-optimized clinical procedure galleries.",
+  },
+  {
+    title: "Verso Biosense",
+    category: "Medical Technology & Clinical Trials",
+    url: "https://www.versobiosense.com",
+    image:
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.versobiosense.com?w=800&h=500",
+    tech: ["WordPress", "Custom Layouts", "Responsive Media", "Clinical Showcase", "Healthcare UI"],
+    description:
+      "Pioneering medical technology platform for Verso Biosense's intrauterine sensor and clinical health monitoring ecosystem. Engineered to showcase continuous biomarker data platforms, UK clinical trials registration, thought leadership resources, and medical product architecture.",
   },
   {
     title: "Axelis Staging & Web Architecture",
@@ -91,6 +121,16 @@ export const PROJECTS = [
       "On-demand presentation design platform engineered with an interactive four-step quote calculator and filterable template library.",
   },
   {
+    title: "cometis AG",
+    category: "Financial Communications & IR Platform",
+    url: "https://www.cometis.de",
+    image:
+      "https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.cometis.de?w=800&h=500",
+    tech: ["WordPress", "Multilingual (DE/EN)", "Custom Architecture", "SEO & Compliance"],
+    description:
+      "Corporate web platform for leading German financial communications and investor relations consultancy cometis AG. Features multilingual (German/English) content architecture, capital market and ESG advisory service funnels, and optimized corporate performance.",
+  },
+  {
     title: "Marketing-Club Aachen",
     category: "Event & Membership Portal",
     url: "https://marketingclub-aachen.de",
@@ -108,7 +148,7 @@ export const PROJECTS = [
   {
     title: "Dr. Roseann",
     category: "Medical & Healthcare Platform",
-    url: "https://www.drroseann.com/",
+    url: "https://www.drroseann.com",
     image:
       "https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.drroseann.com%2F?w=800&h=500",
     tech: ["WordPress", "Elementor", "Responsive UI", "Healthcare SEO"],
