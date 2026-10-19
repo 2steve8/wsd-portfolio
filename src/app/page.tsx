@@ -80,41 +80,45 @@ export default function PortfolioPage() {
         }
       );
 
-      // 3. OCTANE-STYLE PINNED SPLIT-SCROLL INTERACTION
-      const projectItems = gsap.utils.toArray<HTMLElement>(".project-item-right");
-      const textPanels = gsap.utils.toArray<HTMLElement>(".project-text-panel");
+      // 3. OCTANE-STYLE PINNED SPLIT-SCROLL (Desktop Only: min-width 1024px)
+      const mm = gsap.matchMedia();
 
-      projectItems.forEach((item, index) => {
-        ScrollTrigger.create({
-          trigger: item,
-          start: "top 55%",
-          end: "bottom 55%",
-          onEnter: () => setActiveProject(index),
-          onEnterBack: () => setActiveProject(index),
+      mm.add("(min-width: 1024px)", () => {
+        const projectItems = gsap.utils.toArray<HTMLElement>(".project-item-right");
+        const textPanels = gsap.utils.toArray<HTMLElement>(".project-text-panel");
+
+        projectItems.forEach((item, index) => {
+          ScrollTrigger.create({
+            trigger: item,
+            start: "top 55%",
+            end: "bottom 55%",
+            onEnter: () => setActiveProject(index),
+            onEnterBack: () => setActiveProject(index),
+          });
         });
+
+        function setActiveProject(activeIndex: number) {
+          textPanels.forEach((panel, i) => {
+            if (i === activeIndex) {
+              gsap.to(panel, {
+                opacity: 1,
+                y: 0,
+                duration: 0.4,
+                ease: "power2.out",
+                pointerEvents: "auto",
+              });
+            } else {
+              gsap.to(panel, {
+                opacity: 0,
+                y: i < activeIndex ? -15 : 15,
+                duration: 0.3,
+                ease: "power2.in",
+                pointerEvents: "none",
+              });
+            }
+          });
+        }
       });
-
-      function setActiveProject(activeIndex: number) {
-        textPanels.forEach((panel, i) => {
-          if (i === activeIndex) {
-            gsap.to(panel, {
-              opacity: 1,
-              y: 0,
-              duration: 0.4,
-              ease: "power2.out",
-              pointerEvents: "auto",
-            });
-          } else {
-            gsap.to(panel, {
-              opacity: 0,
-              y: i < activeIndex ? -15 : 15,
-              duration: 0.3,
-              ease: "power2.in",
-              pointerEvents: "none",
-            });
-          }
-        });
-      }
 
       // 4. Experience timeline items slide in from left
       const timelineItems = gsap.utils.toArray<HTMLElement>(".timeline-item");
@@ -354,30 +358,37 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* FEATURED PROJECTS (OCTANE-STYLE PINNED SPLIT SCROLLER) */}
+        {/* FEATURED PROJECTS (Octane Split Scroller on Desktop, Standard Cards on Mobile) */}
         <section id="projects" className="py-24 border-b border-slate-800/80">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-              {/* LEFT COLUMN: Pinned Sticky Title & Dynamic Cross-Fading Copy */}
-              <div className="lg:col-span-5 lg:sticky lg:top-28 z-20">
-                <p className="text-emerald-400 text-xs sm:text-sm font-mono uppercase tracking-widest mb-2 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Production Systems & Architecture
-                </p>
-                <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-8">
-                  Featured Web Projects
-                </h2>
+            {/* Header: Common to both views */}
+            <div className="mb-12 lg:mb-0">
+              <p className="text-emerald-400 text-xs sm:text-sm font-mono uppercase tracking-widest mb-2 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                Production Systems & Architecture
+              </p>
+              <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+                Featured Web Projects
+              </h2>
+              <p className="text-slate-400 text-sm max-w-md lg:hidden">
+                Production platforms, custom WordPress themes, e-commerce architectures, and medical clinic portals.
+              </p>
+            </div>
 
-                {/* Cross-Fading Text Container */}
-                <div className="relative min-h-[340px]">
+            {/* --- DESKTOP VIEW (lg:grid): Octane-Style Pinned Split Scroller --- */}
+            <div className="hidden lg:grid grid-cols-12 gap-16 items-start mt-8">
+              {/* Left Column: Pinned Sticky Title & Dynamic Copy */}
+              <div className="col-span-5 sticky top-28 z-20">
+                <div className="relative min-h-[380px]">
                   {PROJECTS.map((project, idx) => (
                     <div
                       key={project.title}
-                      className={`project-text-panel transition-colors ${idx === 0 ? "opacity-100 relative pointer-events-auto" : "opacity-0 absolute inset-0 pointer-events-none"
+                      className={`project-text-panel transition-colors ${idx === 0
+                          ? "opacity-100 relative pointer-events-auto"
+                          : "opacity-0 absolute inset-0 pointer-events-none"
                         }`}
                     >
-                      {/* Active Tag / Pill */}
                       <div className="flex items-center gap-3 mb-4">
                         <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 rounded-full font-semibold">
                           {project.category}
@@ -387,7 +398,7 @@ export default function PortfolioPage() {
                         </span>
                       </div>
 
-                      <h3 className="text-2xl sm:text-3xl font-bold text-slate-100 mb-4">
+                      <h3 className="text-3xl font-bold text-slate-100 mb-4">
                         {project.title}
                       </h3>
 
@@ -395,7 +406,6 @@ export default function PortfolioPage() {
                         {project.description}
                       </p>
 
-                      {/* Tech Stack Pills */}
                       <div className="flex flex-wrap gap-2 mb-8">
                         {project.tech.map((t) => (
                           <span
@@ -407,7 +417,6 @@ export default function PortfolioPage() {
                         ))}
                       </div>
 
-                      {/* Live Link Button */}
                       <a
                         href={project.url}
                         target="_blank"
@@ -422,14 +431,13 @@ export default function PortfolioPage() {
                 </div>
               </div>
 
-              {/* RIGHT COLUMN: Vertically Scrolling Website Mockups */}
-              <div className="lg:col-span-7 space-y-16 lg:space-y-24">
-                {PROJECTS.map((project, idx) => (
+              {/* Right Column: Scrolling Screenshots */}
+              <div className="col-span-7 space-y-24">
+                {PROJECTS.map((project) => (
                   <div
                     key={project.title}
                     className="project-item-right rounded-3xl bg-slate-900/60 border border-slate-800 overflow-hidden shadow-2xl transition-all duration-300 hover:border-emerald-500/40"
                   >
-                    {/* Browser Mockup Top-Bar */}
                     <div className="flex items-center justify-between px-5 py-3 bg-slate-900 border-b border-slate-800">
                       <div className="flex items-center gap-2">
                         <span className="w-3 h-3 rounded-full bg-rose-500/80" />
@@ -450,7 +458,6 @@ export default function PortfolioPage() {
                       </a>
                     </div>
 
-                    {/* Screenshot Preview with Smooth Auto-Scroll on Hover */}
                     <a
                       href={project.url}
                       target="_blank"
@@ -468,8 +475,102 @@ export default function PortfolioPage() {
                   </div>
                 ))}
               </div>
-
             </div>
+
+            {/* --- MOBILE VIEW (lg:hidden): Normal, Clean Vertical Stacked Cards --- */}
+            <div className="lg:hidden space-y-8 mt-6">
+              {PROJECTS.map((project, idx) => (
+                <div
+                  key={project.title}
+                  className="rounded-2xl bg-slate-900/70 border border-slate-800 overflow-hidden shadow-xl"
+                >
+                  {/* Browser Bar */}
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900 border-b border-slate-800">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                    </div>
+                    <span className="text-[11px] font-mono text-slate-400 truncate max-w-[180px] bg-slate-950 px-2.5 py-0.5 rounded border border-slate-800">
+                      {project.url.replace(/^https?:\/\//, "")}
+                    </span>
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-400 hover:text-emerald-400 p-1"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  {/* Image */}
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative aspect-[16/10] overflow-hidden bg-slate-950"
+                  >
+                    <img
+                      src={project.image}
+                      alt={`${project.title} preview`}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </a>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full font-semibold">
+                        {project.category}
+                      </span>
+                      <span className="text-[11px] font-mono text-slate-500">
+                        0{idx + 1} / 0{PROJECTS.length}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-slate-100 mb-2">
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline flex items-center justify-between"
+                      >
+                        <span>{project.title}</span>
+                        <ArrowUpRight className="w-4 h-4 text-emerald-400 shrink-0" />
+                      </a>
+                    </h3>
+
+                    <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                      {project.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="text-[11px] font-mono text-slate-300 bg-slate-950 px-2 py-0.5 rounded border border-slate-800"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-semibold text-xs hover:bg-emerald-400 transition-colors"
+                    >
+                      <span>Visit Live Site</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </section>
 
