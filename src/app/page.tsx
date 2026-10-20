@@ -385,7 +385,7 @@ export default function PortfolioPage() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-semibold text-sm hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-950/40"
                       >
-                        <span>Visit Live Site</span>
+                        <span>Visit {project.title}</span>
                         <ExternalLink className="w-4 h-4" />
                       </a>
                     </div>
@@ -526,7 +526,7 @@ export default function PortfolioPage() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-semibold text-xs hover:bg-emerald-400 transition-colors"
                     >
-                      <span>Visit Live Site</span>
+                      <span>Visit {project.title}</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
