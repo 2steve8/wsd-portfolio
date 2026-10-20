@@ -11,6 +11,7 @@ import {
   SKILLS,
 } from "@/data/portfolioData";
 import { useGSAP } from "@gsap/react";
+import { Analytics } from "@vercel/analytics/next";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -153,6 +154,7 @@ export default function PortfolioPage() {
       ref={containerRef}
       className="min-h-screen bg-[#070B14] text-slate-100 selection:bg-emerald-500 selection:text-slate-950 font-sans"
     >
+      <Analytics />
       {/* Subtle Ambient Background Glow */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
