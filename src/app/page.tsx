@@ -430,7 +430,7 @@ export default function PortfolioPage() {
                         src={project.image}
                         alt={`${project.title} preview`}
                         loading="lazy"
-                        className="w-full h-auto object-cover object-top transition-transform duration-[3500ms] ease-in-out group-hover/img:-translate-y-[55%]"
+                        className="w-full h-auto min-h-full object-cover object-top transition-transform duration-[6000ms] ease-in-out group-hover/img:-translate-y-[calc(100%-280px)]"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-60 group-hover/img:opacity-10 transition-opacity pointer-events-none" />
                     </a>
@@ -477,8 +477,9 @@ export default function PortfolioPage() {
                       src={project.image}
                       alt={`${project.title} preview`}
                       loading="lazy"
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-auto object-cover object-top transition-transform duration-[3500ms] ease-in-out group-hover/img:-translate-y-[55%]"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-60 group-hover/img:opacity-10 transition-opacity pointer-events-none" />
                   </a>
 
                   {/* Content */}
