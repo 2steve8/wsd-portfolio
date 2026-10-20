@@ -1,5 +1,7 @@
 "use client";
 
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import {
   ABOUT_ME,
   EDUCATION,
@@ -157,47 +159,7 @@ export default function PortfolioPage() {
         <div className="absolute top-1/3 -right-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
       </div>
 
-      {/* Sticky Top Navbar */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#070B14]/80 border-b border-slate-800/80">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a
-            href="#"
-            className="text-xl font-bold tracking-tighter flex items-center gap-2"
-          >
-            <Terminal className="w-5 h-5 text-emerald-400" />
-            <span>WSD</span>
-            <span className="text-emerald-400">.</span>
-          </a>
-
-          <nav className="hidden md:flex items-center gap-8 text-sm text-slate-300">
-            <a href="#skills" className="hover:text-emerald-400 transition-colors">
-              Skills
-            </a>
-            <a href="#projects" className="hover:text-emerald-400 transition-colors">
-              Projects
-            </a>
-            <a href="#archive" className="hover:text-emerald-400 transition-colors">
-              Archive
-            </a>
-            <a href="#experience" className="hover:text-emerald-400 transition-colors">
-              Experience
-            </a>
-            <a href="#contact" className="hover:text-emerald-400 transition-colors">
-              Contact
-            </a>
-          </nav>
-
-          <a
-            href={PERSONAL_INFO.resumePdfUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3.5 py-2 rounded-lg hover:bg-emerald-500 hover:text-slate-950 transition-colors flex items-center gap-1.5"
-          >
-            <FileText className="w-3.5 h-3.5" />
-            View Resume
-          </a>
-        </div>
-      </header>
+      <Header />
 
       <main className="relative z-10 max-w-6xl mx-auto px-6">
         {/* HERO SECTION */}
@@ -385,8 +347,8 @@ export default function PortfolioPage() {
                     <div
                       key={project.title}
                       className={`project-text-panel transition-colors ${idx === 0
-                          ? "opacity-100 relative pointer-events-auto"
-                          : "opacity-0 absolute inset-0 pointer-events-none"
+                        ? "opacity-100 relative pointer-events-auto"
+                        : "opacity-0 absolute inset-0 pointer-events-none"
                         }`}
                     >
                       <div className="flex items-center gap-3 mb-4">
@@ -807,10 +769,7 @@ export default function PortfolioPage() {
         </section>
       </main>
 
-      <footer className="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
-        © 2026 {PERSONAL_INFO.name}. Built with Next.js,
-        Tailwind CSS, and GSAP.
-      </footer>
+      <Footer />
     </div>
   );
 }
