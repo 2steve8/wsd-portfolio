@@ -25,6 +25,7 @@ import {
   Mail,
   MapPin,
   Phone,
+  PhoneLog,
   Terminal,
 } from "lucide-react";
 import { useRef } from "react";
@@ -213,13 +214,12 @@ export default function PortfolioPage() {
             </a>
 
             <a
-              href={PERSONAL_INFO.resumePdfUrl}
-              target="_blank"
+              href="#contact"
               rel="noopener noreferrer"
               className="hero-cta px-6 py-3.5 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300 font-medium hover:border-slate-600 transition-colors flex items-center gap-2"
             >
-              <FileText className="w-4 h-4 text-cyan-400" />
-              View Resume
+              <PhoneLog className="w-4 h-4 text-cyan-400" />
+              Get In Touch
             </a>
           </div>
         </section>
@@ -237,7 +237,7 @@ export default function PortfolioPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* Left Column: Core Focus & Philosophy Card (5 Cols) */}
-            <div className="lg:col-span-5 rounded-3xl bg-gradient-to-br from-slate-900/90 via-slate-900/50 to-emerald-950/20 border border-emerald-500/30 p-8 sm:p-10 relative overflow-hidden flex flex-col justify-between shadow-2xl shadow-emerald-950/20">
+            <div className="lg:col-span-5 rounded-3xl bg-linear-to-br from-slate-900/90 via-slate-900/50 to-emerald-950/20 border border-emerald-500/30 p-8 sm:p-10 relative overflow-hidden flex flex-col justify-between shadow-2xl shadow-emerald-950/20">
               <div className="absolute -top-20 -left-20 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
               <div>
@@ -344,7 +344,7 @@ export default function PortfolioPage() {
             <div className="hidden lg:grid grid-cols-12 gap-16 items-start mt-8">
               {/* Left Column: Pinned Sticky Title & Dynamic Copy */}
               <div className="col-span-5 sticky top-28 z-20">
-                <div className="relative min-h-[380px]">
+                <div className="relative min-h-95">
                   {PROJECTS.map((project, idx) => (
                     <div
                       key={project.title}
@@ -408,7 +408,7 @@ export default function PortfolioPage() {
                         <span className="w-3 h-3 rounded-full bg-amber-500/80" />
                         <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
                       </div>
-                      <span className="text-xs font-mono text-slate-400 truncate max-w-[260px] bg-slate-950 px-3 py-0.5 rounded border border-slate-800">
+                      <span className="text-xs font-mono text-slate-400 truncate max-w-65 bg-slate-950 px-3 py-0.5 rounded border border-slate-800">
                         {project.url.replace(/^https?:\/\//, "")}
                       </span>
                       <a
@@ -432,9 +432,9 @@ export default function PortfolioPage() {
                         src={project.image}
                         alt={`${project.title} preview`}
                         loading="lazy"
-                        className="w-full h-auto min-h-full object-cover object-top transition-transform duration-[6000ms] ease-in-out group-hover/img:-translate-y-[calc(100%-280px)]"
+                        className="w-full h-auto min-h-full object-cover object-top transition-transform duration-6000 ease-in-out group-hover/img:-translate-y-[calc(100%)]"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-60 group-hover/img:opacity-10 transition-opacity pointer-events-none" />
+                      <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent opacity-60 group-hover/img:opacity-10 transition-opacity pointer-events-none" />
                     </a>
                   </div>
                 ))}
@@ -455,7 +455,7 @@ export default function PortfolioPage() {
                       <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                     </div>
-                    <span className="text-[11px] font-mono text-slate-400 truncate max-w-[180px] bg-slate-950 px-2.5 py-0.5 rounded border border-slate-800">
+                    <span className="text-[11px] font-mono text-slate-400 truncate max-w-45 bg-slate-950 px-2.5 py-0.5 rounded border border-slate-800">
                       {project.url.replace(/^https?:\/\//, "")}
                     </span>
                     <a
