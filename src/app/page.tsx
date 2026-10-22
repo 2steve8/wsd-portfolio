@@ -428,13 +428,23 @@ export default function PortfolioPage() {
                       rel="noopener noreferrer"
                       className="block relative aspect-16/10 overflow-hidden bg-slate-950 group/img"
                     >
-                      <img
-                        src={project.image}
-                        alt={`${project.title} preview`}
-                        loading="lazy"
-                        className="w-full h-auto min-h-full object-cover object-top transition-transform duration-6000 ease-in-out group-hover/img:-translate-y-[calc(100%-352px)]"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent opacity-60 group-hover/img:opacity-10 transition-opacity pointer-events-none" />
+                      {/* Interactive Scrollable Screenshot Frame */}
+                      <div className="relative aspect-[16/10] bg-slate-950 overflow-y-auto overflow-x-hidden no-scrollbar overscroll-contain select-none group/scroll">
+                        <img
+                          src={project.image}
+                          alt={`${project.title} preview`}
+                          loading="lazy"
+                          className="w-full h-auto object-cover object-top block"
+                        />
+
+                        {/* Interactive Scroll Hint Badge (fades out once user hovers) */}
+                        <div className="absolute bottom-3 right-3 pointer-events-none opacity-80 group-hover/scroll:opacity-0 transition-opacity duration-300">
+                          <span className="text-[10px] font-mono text-slate-300 bg-slate-900/90 border border-slate-700/80 px-2.5 py-1 rounded-full shadow-lg backdrop-blur-sm flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                            Scroll to explore
+                          </span>
+                        </div>
+                      </div>
                     </a>
                   </div>
                 ))}
@@ -475,13 +485,15 @@ export default function PortfolioPage() {
                     rel="noopener noreferrer"
                     className="block relative aspect-[16/10] overflow-hidden bg-slate-950"
                   >
-                    <img
-                      src={project.image}
-                      alt={`${project.title} preview`}
-                      loading="lazy"
-                      className="w-full h-auto object-cover object-top transition-transform duration-[3500ms] ease-in-out group-hover/img:-translate-y-[55%]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-60 group-hover/img:opacity-10 transition-opacity pointer-events-none" />
+                    {/* Mobile Interactive Scrollable Image */}
+                    <div className="relative aspect-[16/10] bg-slate-950 overflow-y-auto overflow-x-hidden no-scrollbar overscroll-contain">
+                      <img
+                        src={project.image}
+                        alt={`${project.title} preview`}
+                        loading="lazy"
+                        className="w-full h-auto object-cover object-top block"
+                      />
+                    </div>
                   </a>
 
                   {/* Content */}
