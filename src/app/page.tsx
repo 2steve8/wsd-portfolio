@@ -432,7 +432,7 @@ export default function PortfolioPage() {
                         src={project.image}
                         alt={`${project.title} preview`}
                         loading="lazy"
-                        className="w-full h-auto min-h-full object-cover object-top transition-transform duration-6000 ease-in-out group-hover/img:-translate-y-[calc(100%)]"
+                        className="w-full h-auto min-h-full object-cover object-top transition-transform duration-6000 ease-in-out group-hover/img:-translate-y-[calc(100%-560px)]"
                       />
                       <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent opacity-60 group-hover/img:opacity-10 transition-opacity pointer-events-none" />
                     </a>
