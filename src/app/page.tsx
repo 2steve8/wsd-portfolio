@@ -358,7 +358,7 @@ export default function PortfolioPage() {
                           {project.category}
                         </span>
                         <span className="text-xs font-mono text-slate-500">
-                          0{idx + 1} / 0{PROJECTS.length}
+                          {idx + 1} / {PROJECTS.length}
                         </span>
                       </div>
 
@@ -426,7 +426,7 @@ export default function PortfolioPage() {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block relative aspect-[16/10] overflow-hidden bg-slate-950 group/img"
+                      className="block relative aspect-16/10 overflow-hidden bg-slate-950 group/img"
                     >
                       <img
                         src={project.image}
@@ -491,7 +491,7 @@ export default function PortfolioPage() {
                         {project.category}
                       </span>
                       <span className="text-[11px] font-mono text-slate-500">
-                        0{idx + 1} / 0{PROJECTS.length}
+                        {idx + 1} / {PROJECTS.length}
                       </span>
                     </div>
 
