@@ -24,8 +24,8 @@ export default function Header() {
                     <a href="#projects" className="hover:text-emerald-400 transition-colors">
                         Projects
                     </a>
-                    <a href="#drive-archive" className="hover:text-emerald-400 transition-colors">
-                        Drive Archive
+                    <a href="#archive" className="hover:text-emerald-400 transition-colors">
+                        Archive
                     </a>
                     <a href="#experience" className="hover:text-emerald-400 transition-colors">
                         Experience
