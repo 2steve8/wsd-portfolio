@@ -8,7 +8,7 @@ import {
   EXPERIENCE,
   PERSONAL_INFO,
   PROJECTS,
-  SKILLS,
+  SKILLS
 } from "@/data/portfolioData";
 import { useGSAP } from "@gsap/react";
 import { Analytics } from "@vercel/analytics/next";
