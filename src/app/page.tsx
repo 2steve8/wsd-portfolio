@@ -725,9 +725,7 @@ export default function PortfolioPage() {
               Let&apos;s build or scale your next web platform.
             </h2>
             <p className="text-slate-400 text-base sm:text-lg mb-10">
-              Whether you need a custom WordPress architecture, a dedicated Web
-              Operations Administrator, or a modern Next.js frontend, reach out
-              directly via email or phone.
+              Whether you need a custom WordPress or Shopify storefront, technical SEO &amp; performance optimization, or a dedicated Web Operations Administrator, reach out directly.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
