@@ -5,6 +5,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://wsd-portfolio.vercel.app"),
   title: `${PERSONAL_INFO.name} | ${PERSONAL_INFO.role}`,
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   description:
     "Senior Web Developer and Web Operations Administrator with 8+ years specializing in custom WordPress architectures, PHP themes, Elementor, React/Next.js, and high-performance web systems.",
   openGraph: {
