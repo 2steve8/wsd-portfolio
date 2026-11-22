@@ -90,9 +90,9 @@ export const PROJECTS = [
     category: "Cosmetic Aesthetics & Skin Clinic",
     url: "https://www.youthfulbyrosie.com.au",
     image: "/youthfulbyrosie.webp",
-    tech: ["Wix Studio / Editor", "Wix Bookings", "Custom Styling", "Responsive Layout", "Aesthetic UI"],
+    tech: ["Squarespace", "Custom CSS", "Acuity Scheduling", "Responsive UI", "Local SEO"],
     description:
-      "Bespoke cosmetic injectable and dermal skin clinic platform built on Wix for Youthful by Rosie (Australia). Features tailored aesthetic service menus, seamless Wix Bookings integration, client consultation funnels, and mobile-optimized visual branding.",
+      "Bespoke cosmetic aesthetics, skin, and wellness clinic platform built on Squarespace for Youthful by Rosie (Brighton, Australia). Features tailored treatment menus, integrated appointment booking workflows, localized SEO optimization, and refined mobile-first visual branding.",
   },
   {
     title: "Heal Nutrition",
@@ -102,6 +102,15 @@ export const PROJECTS = [
     tech: ["Shopify", "Liquid", "E-Commerce Architecture", "Conversion Rate Optimization", "Responsive UI"],
     description:
       "Direct-to-consumer health and protein supplement e-commerce storefront powered by Shopify. Engineered with custom product bundles, subscription checkout funnels, mobile-first navigation, and optimized product discovery.",
+  },
+  {
+    title: "Eyemuse",
+    category: "Eyewear & Optical E-Commerce Platform",
+    url: "https://eyemuse.my/",
+    image: "/eyemuse.webp",
+    tech: ["E-Commerce", "Custom UI/UX", "Responsive Storefront", "Product Catalog", "SEO"],
+    description:
+      "Direct-to-consumer eyewear and optical retail e-commerce storefront for Eyemuse (Malaysia). Engineered with structured frame collections, prescription lens selection flows, mobile-first product discovery, and optimized storefront performance.",
   },
   {
     title: "Verso Biosense",
