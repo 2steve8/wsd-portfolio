@@ -1,5 +1,6 @@
 import { PERSONAL_INFO } from "@/data/portfolioData";
-import { FileText, Terminal } from "lucide-react";
+import { FileText } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
     return (
@@ -7,11 +8,17 @@ export default function Header() {
             <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
                 <a
                     href="#"
-                    className="text-xl font-bold tracking-tighter flex items-center gap-2"
+                    className="flex items-center shrink-0"
+                    aria-label="Steve Ducay Portfolio Home"
                 >
-                    <Terminal className="w-5 h-5 text-emerald-400" />
-                    <span>WSD</span>
-                    <span className="text-emerald-400">.</span>
+                    <Image
+                        src="/logo.png"
+                        alt="SD Logo"
+                        width={112}
+                        height={28}
+                        priority
+                        className="h-7 w-auto object-contain"
+                    />
                 </a>
 
                 <nav className="hidden md:flex items-center gap-8 text-sm text-slate-300">
