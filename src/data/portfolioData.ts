@@ -241,7 +241,7 @@ export const EXPERIENCE = [
 
 export const EDUCATION = {
   degree: "Bachelor of Science in Information Technology",
-  school: "STI College Marikina",
+  school: "STI College",
   website: "https://www.sti.edu",
   logo: "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.sti.edu&size=256",
   graduated: "March 2012",
