@@ -106,7 +106,7 @@ export const PROJECTS = [
   {
     title: "Eyemuse",
     category: "Eyewear & Optical E-Commerce Platform",
-    url: "https://eyemuse.my/",
+    url: "https://eyemuse.my",
     image: "/eyemuse.webp",
     tech: ["E-Commerce", "Custom UI/UX", "Responsive Storefront", "Product Catalog", "SEO"],
     description:
