@@ -5,7 +5,7 @@ export const PERSONAL_INFO = {
   phone: "+63 955 340 4738",
   emailPrimary: "williamsteveducay@live.com",
   emailSecondary: "mastahkillah21@gmail.com",
-  bio: "Full-stack Web Developer and Web Operations Administrator with over 8 years of experience specializing in custom WordPress ecosystems (Elementor, Divi, WPBakery, PHP), Shopify storefronts (Liquid), React/Next.js, and technical SEO, delivering high-performance digital platforms with rigorous QA and operational reliability.npm ",
+  bio: "Full-stack Web Developer and Web Operations Administrator with over 8 years of experience specializing in custom WordPress ecosystems (Elementor, Divi, WPBakery, PHP), Shopify storefronts (Liquid), React/Next.js, and technical SEO, delivering high-performance digital platforms with rigorous QA and operational reliability.",
   drivePortfolioUrl:
     "https://drive.google.com/drive/u/0/folders/0B_W6wEPPCj6XLWRfTHA0OXVQSFk?resourcekey=0-16GD75SggfU_s-rLt9XBuQ",
   resumePdfUrl:
