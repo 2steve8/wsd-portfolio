@@ -13,34 +13,36 @@ export const PERSONAL_INFO = {
 };
 
 export const ABOUT_ME = {
-  headline: "Building web platforms, custom WordPress themes, and scalable frontend architectures.",
+  headline: "Building high-converting web platforms, custom WordPress & Shopify themes, and scalable frontend architectures.",
   focusAreas: [
-    "Custom WordPress & PHP Development",
-    "React.js & Next.js Ecosystems",
-    "Web Operations & Server Deployment",
-    "Performance Optimization & SEO",
+    "WordPress (Elementor, Divi, WPBakery) & PHP",
+    "Shopify Storefronts (Liquid & Tailwind CSS)",
+    "React.js, Next.js & Python Automation",
+    "Web Operations, Technical SEO & AI Workflows",
   ],
   paragraphs: [
-    "I am a Full-Stack Web Developer and Web Operations Administrator with over 8 years of specialized experience architecting custom WordPress ecosystems, high-performance PHP themes, Elementor implementations, and modern React/Next.js frontends.",
-    "My professional journey is grounded in a Bachelor of Science in Information Technology from STI College, combined with extensive leadership in digital operations and project management. This background instills a rigorous, systems-oriented approach to debugging, server deployments, database optimization, and cross-functional technical management.",
-    "Whether scaling agency funnels, managing cPanel/DigitalOcean infrastructure, or streamlining multilingual RTL platforms, I bridge the gap between technical code quality and seamless digital operations.",
+    "I am a Full-Stack Web Developer and Web Operations Administrator with over 8 years of specialized experience architecting custom WordPress ecosystems (Elementor, Divi, WPBakery, PHP), high-converting Shopify storefronts (Liquid & Tailwind CSS), and modern React/Next.js frontends.",
+    "My professional journey is grounded in a Bachelor of Science in Information Technology from STI College, combined with extensive leadership in digital operations and project management. This background instills a rigorous, systems-oriented approach to debugging, Python automation, server deployments, database optimization, and cross-functional technical management.",
+    "Whether scaling e-commerce and agency funnels, managing cPanel/DigitalOcean infrastructure, or streamlining multilingual RTL platforms with AI-accelerated workflows, I bridge the gap between technical code quality and seamless digital operations.",
   ],
 };
 
 export const SKILLS = [
   "WordPress & Custom PHP",
-  "Elementor Pro & ACF",
-  "LearnDash, Kajabi & GoHighLevel",
-  "WooCommerce",
-  "JavaScript (ES6+) & jQuery",
+  "Elementor Pro, Divi & WPBakery",
+  "Shopify, Liquid & Online Store 3.0",
+  "WooCommerce & E-Commerce",
+  "JavaScript (ES6+), TypeScript & jQuery",
   "React.js & Next.js",
-  "Node.js",
-  "PostgreSQL & Prisma",
-  "HTML5 / CSS3 / Tailwind",
+  "Tailwind CSS & HTML5 / CSS3",
+  "Python & Automation Scripting",
+  "Node.js & REST APIs",
+  "Git, GitHub & Staging Workflows",
   "cPanel, DigitalOcean & DNS",
-  "Google Tag Manager & SEO",
-  "Figma & Adobe Illustrator",
-  "Web Operations & QA",
+  "GA4, Google Tag Manager & Technical SEO",
+  "Figma & Adobe Photoshop",
+  "AI-Assisted Dev (ChatGPT, Claude, Gemini)",
+  "Web Operations & Core Web Vitals QA",
 ];
 
 export const getFullPageScreenshot = (url: string) =>
