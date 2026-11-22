@@ -106,13 +106,13 @@ export const PROJECTS = [
       "Direct-to-consumer health and protein supplement e-commerce storefront powered by Shopify. Engineered with custom product bundles, subscription checkout funnels, mobile-first navigation, and optimized product discovery.",
   },
   {
-    title: "Eyemuse",
+    title: "Eye Muse",
     category: "Eyewear & Optical E-Commerce Platform",
     url: "https://eyemuse.my",
     image: "/eyemuse.webp",
-    tech: ["E-Commerce", "Custom UI/UX", "Responsive Storefront", "Product Catalog", "SEO"],
+    tech: ["Shopify", "Custom UI/UX", "Responsive Storefront", "Product Catalog", "SEO"],
     description:
-      "Direct-to-consumer eyewear and optical retail e-commerce storefront for Eyemuse (Malaysia). Engineered with structured frame collections, prescription lens selection flows, mobile-first product discovery, and optimized storefront performance.",
+      "Direct-to-consumer eyewear and optical retail e-commerce storefront for Eye Muse (Malaysia). Engineered with structured frame collections, prescription lens selection flows, mobile-first product discovery, and optimized storefront performance.",
   },
   {
     title: "Verso Biosense",
@@ -128,7 +128,7 @@ export const PROJECTS = [
     category: "On-Demand Presentation Platform",
     url: "https://slidestudio.io",
     image: "/slidestudio.webp",
-    tech: ["JavaScript", "Interactive Calculator", "WordPress", "Custom UI"],
+    tech: ["WordPress", "JavaScript", "Interactive Calculator", "Custom UI"],
     description:
       "On-demand presentation design platform engineered with an interactive four-step quote calculator and filterable template library.",
   },
